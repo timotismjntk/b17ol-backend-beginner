@@ -18,12 +18,27 @@ app.listen(8080, ()=>{
 })
 
 //tugas 2. POST path '/data' yang akan menampilkan data yang dikirim ke console.log
+
   app.post('/data',(req, res) => {
     console.log(req.body);      
     res.sendStatus(200);
   });
 
-//tugas 3. POST path 'profile' yang akan menampilkan data yang dikirim ke console.log
-  app.post('/login',(req, res) => {
-      res.send(request.body);
+//tugas 3. POST path 'profile' yang akan menampilkan data yang dikirim ke response
+var dataUser = [];
+
+app.post('/login',(req, res) => {
+      res.send(req.body);
+      dataUser.push(user);
+        res.send("found!");
   });
+
+//tugas 4. PATCH pada '/profile' yang akan mengupdate variable sesuai data yang dikirim,
+app.patch((req, res) => {
+    data = {
+        ...data,
+        ...req.body
+    };
+
+    res.send(data);
+})
