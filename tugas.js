@@ -17,7 +17,13 @@ app.listen(8080, ()=>{
     console.log('App Listening on port 8080')
 })
 
-//tugas 2. POST path yang akan menampilkan data yang dikirim ke console.log
+//tugas 2. POST path '/data' yang akan menampilkan data yang dikirim ke console.log
+  app.post('/data',(req, res) => {
+    console.log(req.body);      
+    res.sendStatus(200);
+  });
+
+//tugas 3. POST path 'profile' yang akan menampilkan data yang dikirim ke console.log
   app.post('/login',(req, res) => {
-    console.log(req.body);
+      res.send(request.body);
   });
